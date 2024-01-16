@@ -1,9 +1,20 @@
-﻿namespace ClassDemo;
+﻿
 
-internal class Program
+namespace ClassDemo;
+
+public class Program
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
+    }
+
+    public bool Login(string username, string password)
+    {
+        if (username == "Inigo.Montoya" && password == "goodpassword")
+        {
+            return true;
+        };
+        return false;
     }
 }
