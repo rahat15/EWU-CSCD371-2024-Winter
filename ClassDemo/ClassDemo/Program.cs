@@ -11,10 +11,10 @@ public class Program
 
     public bool Login(string username, string password)
     {
-        if (username == "Inigo.Montoya" && password == "goodpassword")
+        if ((username == "Inigo.Montoya" || username == "Princess.Buttercup") && password == "goodpassword")
         {
             return true;
-        };
+        }
         return false;
     }
 }

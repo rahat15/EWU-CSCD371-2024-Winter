@@ -34,10 +34,16 @@ public class ProgramTests
     public void Login_InigoMontoyaWithGoodPassword_FailedLogin()
     {
         Assert.Equal(0, _InstanceCount);
-        string username = "Inigo.Montoya";
-        string password = "badpassword";
         _InstanceCount++;
 
-        Assert.False(_Program.Login(username, password));
+        Assert.False(_Program.Login("Inigo.Montoya", "badpassword"));
     }
+
+    [Fact]
+    public void Login_PrincessButtercupWithGoodPassword_SuccessfulLogin()
+    {
+        Assert.True(_Program.Login("Princess.Buttercup", "goodpassword"));
+    }
+
+
 }
