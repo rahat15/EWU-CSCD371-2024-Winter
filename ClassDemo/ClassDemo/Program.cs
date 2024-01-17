@@ -1,5 +1,6 @@
 ﻿
 
+
 namespace ClassDemo;
 
 public class Program
@@ -9,12 +10,21 @@ public class Program
         Console.WriteLine("Hello, World!");
     }
 
-    public bool Login(string username, string password)
+    public void Login(string username, string password)
     {
-        if ((username == "Inigo.Montoya" || username == "Princess.Buttercup") && password == "goodpassword")
+        if (!TryLogin(username, password))
+        {
+            throw new InvalidOperationException("Your login is not valid");
+        }
+    }
+
+    public bool TryLogin(string username, string password)
+    {
+        if (password == "goodpassword")
         {
             return true;
         }
         return false;
+        // Moq library in C#
     }
 }
