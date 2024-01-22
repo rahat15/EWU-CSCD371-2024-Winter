@@ -13,9 +13,6 @@ public static class BaseLoggerMixins
             logger.Log(LogLevel.Error, string.Format(message, args));
         }
     }
-
-<<<<<<< Updated upstream
-=======
     public static void Warning(this BaseLogger? logger, string message, params object[] args)
     {
         if (logger == null)
@@ -24,7 +21,7 @@ public static class BaseLoggerMixins
         }
         else
         {
-            logger.Log(LogLevel.Error, string.Format(message, args));
+            logger.Log(LogLevel.Warning, string.Format(message, args));
         }
     }
 
@@ -36,9 +33,8 @@ public static class BaseLoggerMixins
         }
         else
         {
-            logger.Log(LogLevel.Error, string.Format(message, args));
+            logger.Log(LogLevel.Debug, string.Format(message, args));
         }
     }
->>>>>>> Stashed changes
 
 }
