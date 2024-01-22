@@ -2,11 +2,10 @@
 
 public class LogFactory
 {
-    string? filePath;
+    private string? filePath;
 
     public BaseLogger? CreateLogger(string className)
     {
-
         return null;
     }
 
