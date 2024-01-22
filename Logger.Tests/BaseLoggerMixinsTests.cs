@@ -20,6 +20,18 @@ public class BaseLoggerMixinsTests
     }
 
     [TestMethod]
+    [ExpectedException(typeof(ArgumentNullException))]
+    public void Warning_WithNullLogger_ThrowsException()
+    {
+        // Arrange
+
+        // Act
+        BaseLoggerMixins.Warning(null, "");
+
+        // Assert
+    }
+
+        [TestMethod]
     public void Error_WithData_LogsMessage()
     {
         // Arrange
