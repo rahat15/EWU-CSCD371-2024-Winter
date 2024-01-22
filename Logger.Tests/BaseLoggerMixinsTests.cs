@@ -44,6 +44,20 @@ public class BaseLoggerMixinsTests
     }
 
 
+
+    [TestMethod]
+    [ExpectedException(typeof(ArgumentNullException))]
+    public void Information_WithNullLogger_ThrowsException()
+    {
+        // Arrange
+
+        // Act
+        BaseLoggerMixins.Information(null, "");
+
+        // Assert
+    }
+
+
     [TestMethod]
     public void Error_WithData_LogsMessage()
     {

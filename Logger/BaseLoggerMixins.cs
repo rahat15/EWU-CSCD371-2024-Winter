@@ -37,4 +37,16 @@ public static class BaseLoggerMixins
         }
     }
 
+    public static void Information(this BaseLogger? logger, string message, params object[] args)
+    {
+        if (logger == null)
+        {
+            throw new System.ArgumentNullException(nameof(logger));
+        }
+        else
+        {
+            logger.Log(LogLevel.Information, string.Format(message, args));
+        }
+    }
+
 }
