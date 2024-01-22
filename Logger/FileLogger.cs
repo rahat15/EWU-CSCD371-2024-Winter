@@ -39,7 +39,7 @@ namespace Logger
             using (System.IO.StreamWriter writeTo = System.IO.File.AppendText(this.FilePath))
             {
                 writeTo.WriteLine("{0} {1}", DateTime.Now.ToLongTimeString(), DateTime.Now.ToLongDateString());
-                writeTo.WriteLine("name of class");
+                writeTo.WriteLine("{0}", nameof(ClassName));
                 writeTo.WriteLine("{0}", logLevel);
                 writeTo.WriteLine("{0}", message);
                 
