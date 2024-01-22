@@ -6,7 +6,17 @@ public class LogFactory
 
     public BaseLogger? CreateLogger(string className)
     {
-        return null;
+        //ConfigureFileLogger(filePath);
+        if(filePath == null) 
+        {
+            return null;
+        }
+        else
+        {
+            FileLogger logger = new FileLogger() { ClassName = className };
+
+            return logger;
+        }
     }
 
     public void ConfigureFileLogger(string filePath)
