@@ -2,18 +2,18 @@
 
 public class LogFactory
 {
-    private string? filePath;
+    private string? _filePath;
 
     public BaseLogger? CreateLogger(string className)
     {
-        ConfigureFileLogger(filePath!);
-        if (filePath == null)
+        ConfigureFileLogger(_filePath!);
+        if (_filePath == null)
         {
             return null;
         }
         else
         {
-            FileLogger logger = new FileLogger() { ClassName = className };
+            FileLogger logger = new FileLogger(_filePath) { ClassName = className };
 
             return logger;
         }
@@ -22,6 +22,6 @@ public class LogFactory
 
     public void ConfigureFileLogger(string filePath)
     {
-        this.filePath = filePath;
+        _filePath = filePath;
     }
 }

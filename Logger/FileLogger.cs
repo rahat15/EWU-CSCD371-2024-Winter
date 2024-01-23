@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Logger
 {
@@ -26,7 +23,7 @@ namespace Logger
             get;
             set;
         }
-        public FileLogger()
+        public FileLogger(string filePath)
         {
             this.CurrentDirectory = Directory.GetCurrentDirectory();
             this.FileName = "Log.txt";
@@ -41,20 +38,12 @@ namespace Logger
                 File.Delete(FilePath);
             }
 
-            // Create a FileLogger instance
-            FileLogger fileLogger = new FileLogger()
-            {
-                ClassName = "FileLogger"
+            using StreamWriter writeTo = File.AppendText(this.FilePath);
+            writeTo.WriteLine("{0} {1} ", DateTime.Now.ToLongTimeString(), DateTime.Now.ToLongDateString());
+            writeTo.WriteLine("{0}", nameof(FileLogger));
+            writeTo.WriteLine("{0}: ", logLevel);
+            writeTo.WriteLine("{0}", message);
 
-            };
-            using (System.IO.StreamWriter writeTo = System.IO.File.AppendText(this.FilePath))
-            {
-                writeTo.WriteLine("{0} {1}", DateTime.Now.ToLongTimeString(), DateTime.Now.ToLongDateString());
-                writeTo.WriteLine("{0}", nameof(ClassName));
-                writeTo.WriteLine("{0}", logLevel);
-                writeTo.WriteLine("{0}", message);
-            }
-            
         }
     }
 }

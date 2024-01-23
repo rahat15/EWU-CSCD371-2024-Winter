@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c44a3e5a-6c7a-47ee-8abe-6dc10f624b82" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Logger.Tests/FileLoggerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Logger.Tests/FileLoggerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logger.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Logger.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logger/BaseLoggerMixins.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Logger/BaseLoggerMixins.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logger/FileLogger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Logger/FileLogger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logger/LogFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Logger/LogFactory.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2bK3uWuX9GHM3VYV9RR97h6R4KI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Assignment2__work&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/paulaguilar/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/paulaguilar/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache&quot;,
+      &quot;/Users/paulaguilar/.local/share/Symbols/src&quot;
+    ]
+  }
+}</component>
+  <component name="RunManager" selected="3794cf0d-9a21-47ff-a419-4894bb7fecdb" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c44a3e5a-6c7a-47ee-8abe-6dc10f624b82" name="Changes" comment="" />
+      <created>1705950166049</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1705950166049</updated>
+      <workItem from="1705950167203" duration="5855000" />
+      <workItem from="1705977248615" duration="410000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>
