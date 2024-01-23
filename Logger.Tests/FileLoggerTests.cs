@@ -16,7 +16,7 @@ public class FileLoggerTests
     [TestInitialize]
     public void Constructor()
     {
-        fileLogger = new FileLogger(_filePath);
+        _fileLogger = new FileLogger(_filePath);
     }
 
     [TestMethod]
