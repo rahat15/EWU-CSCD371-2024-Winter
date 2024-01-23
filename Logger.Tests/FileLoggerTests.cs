@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -16,8 +16,7 @@ public class FileLoggerTests
     [TestInitialize]
     public void Constructor()
     {
-        _fileLogger = new FileLogger(_filePath);
-        _fileLogger.FileName = _filePath;
+        fileLogger = new FileLogger(_filePath);
     }
 
     [TestMethod]
@@ -33,7 +32,7 @@ public class FileLoggerTests
         logger.Log(LogLevel.Information, "Test Message");
 
         // Assert
-        Assert.IsTrue(File.Exists(logger.FilePath));
+        Assert.IsTrue(File.Exists(_filePath));
 
     }
 
@@ -52,8 +51,7 @@ public class FileLoggerTests
         
 
         // Assert
-        var logContent = File.ReadAllText(logger.FilePath);
-        
+        var logContent = File.ReadAllText(_filePath);
         StringAssert.Equals(formattedDate, logContent);
         StringAssert.Equals("FileLogger", logContent);
         StringAssert.Equals(LogLevel.Information.ToString(), logContent);
@@ -72,7 +70,7 @@ public class FileLoggerTests
         logger.Log(LogLevel.Warning, "Second message");
 
         // Assert
-        var logContent = File.ReadAllText(logger.FilePath);
+        var logContent = File.ReadAllText(_filePath);
         Assert.AreNotEqual("First message", logContent);
     }
 
