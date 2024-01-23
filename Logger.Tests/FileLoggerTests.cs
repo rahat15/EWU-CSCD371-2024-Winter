@@ -27,7 +27,7 @@ public class FileLoggerTests
         var logger = new FileLogger(filePath)
         {
             ClassName = "Test"
-    };
+        };
 
         // Act
         logger.Log(LogLevel.Information, "Test Message");
@@ -48,7 +48,7 @@ public class FileLoggerTests
         // Act
         logger.Log(LogLevel.Information, "Test message");
         File.AppendAllText(logger.FilePath, formattedDate);
-        //File.AppendAllText(logger.FilePath, );
+        
         
 
         // Assert
