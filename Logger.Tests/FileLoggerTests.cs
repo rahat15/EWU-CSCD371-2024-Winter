@@ -17,7 +17,6 @@ public class FileLoggerTests
     public void Constructor()
     {
         fileLogger = new FileLogger(_filePath);
-        fileLogger.FileName = _filePath;
     }
 
     [TestMethod]
@@ -33,7 +32,7 @@ public class FileLoggerTests
         logger.Log(LogLevel.Information, "Test Message");
 
         // Assert
-        Assert.IsTrue(File.Exists(logger.FilePath));
+        Assert.IsTrue(File.Exists(_filePath));
 
     }
 
@@ -49,7 +48,7 @@ public class FileLoggerTests
         logger.Log(LogLevel.Information, "Test message");
 
         // Assert
-        var logContent = File.ReadAllText(logger.FilePath);
+        var logContent = File.ReadAllText(_filePath);
         StringAssert.Equals(formattedDate, logContent);
         StringAssert.Equals("FileLogger", logContent);
         StringAssert.Equals(LogLevel.Information.ToString(), logContent);
@@ -68,7 +67,7 @@ public class FileLoggerTests
         logger.Log(LogLevel.Warning, "Second message");
 
         // Assert
-        var logContent = File.ReadAllText(logger.FilePath);
+        var logContent = File.ReadAllText(_filePath);
         Assert.AreNotEqual("First message", logContent);
     }
 
