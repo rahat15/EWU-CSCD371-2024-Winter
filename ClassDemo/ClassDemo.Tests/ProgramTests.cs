@@ -85,4 +85,26 @@ public class ProgramTests
         Assert.Fail("Exception not thrown for bad login.");
     }
 
+    [Theory]
+    [InlineData("InigoMontoya", 9)]
+    public void Convert_NumberString_ToInt(string inputText, int result)
+    {
+        Assert.True(Program.TryConvert(inputText, out int? number));
+        Assert.Equal(result, number);
+    }
+
+    [Theory]
+    [InlineData("Inigo", "middle", "Montoya", "Inigo middle Montoya")]
+    [InlineData("Inigo", null, "Montoya", "Inigo Montoya")]
+    public void GetFullName_ThreeNames_ReturnsFullName(string firstName, string? middleName, string lastName, string expected)
+    {
+        Assert.Equal(expected, Program.GetFullName(firstName, lastName, middleName));
+    }
+
+    [Theory]
+    [InlineData("Inigo", "Montoya", "Inigo Montoya")]
+    public void GetFullName_ThreeNamesOptionalParameter_ReturnsFullName(string firstName, string lastName, string expected)
+    {
+        Assert.Equal(expected, Program.GetFullName(firstName, lastName));
+    }
 }
