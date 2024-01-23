@@ -13,7 +13,7 @@ public class LogFactory
         }
         else
         {
-            FileLogger logger = new FileLogger(_filePath) { ClassName = className };
+            FileLogger logger = new(_filePath) { ClassName = className };
 
             return logger;
         }

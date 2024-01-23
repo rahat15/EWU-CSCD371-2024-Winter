@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 
 
@@ -6,28 +7,17 @@ namespace Logger
 
     public class FileLogger : BaseLogger
     {
-        public string FileName
-        {
-            get;
-            set;
-        }
+   
 
-        public string CurrentDirectory
-        {
-            get;
-            set;
-        }
-
-        public string FilePath
+        private string FilePath
         {
             get;
             set;
         }
         public FileLogger(string filePath)
         {
-            this.CurrentDirectory = Directory.GetCurrentDirectory();
-            this.FileName = "Log.txt";
-            this.FilePath = this.CurrentDirectory + "/" + this.FileName;
+
+            this.FilePath = filePath;
 
         }
         
@@ -35,8 +25,7 @@ namespace Logger
 
         public override void Log(LogLevel logLevel, string message)
         {
-            DateTime currentDate = DateTime.Now;
-            string formattedDate = currentDate.ToString("MM/dd/yyyy");
+            string currentDateTime = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt", CultureInfo.CurrentCulture);
 
             if (File.Exists(FilePath))
             {
@@ -44,7 +33,7 @@ namespace Logger
             }
 
             using StreamWriter writeTo = File.AppendText(this.FilePath);
-            writeTo.WriteLine("{0} {1} ", formattedDate, DateTime.Now.ToLongTimeString());
+            writeTo.WriteLine("{0}", currentDateTime);
             writeTo.WriteLine("{0}", nameof(FileLogger));
             writeTo.WriteLine("{0}: ", logLevel);
             writeTo.WriteLine("{0}", message);
