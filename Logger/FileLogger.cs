@@ -9,7 +9,7 @@ namespace Logger;
     {
    
 
-        private string FilePath
+        public string FilePath
         {
             get;
             set;

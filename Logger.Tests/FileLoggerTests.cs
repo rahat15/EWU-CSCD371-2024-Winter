@@ -52,7 +52,7 @@ public class FileLoggerTests
 
         // Assert
         var logContent = File.ReadAllText(_filePath);
-        StringAssert.Equals(formattedDate, logContent);
+        StringAssert.Contains(logContent, formattedDate);
         StringAssert.Equals("FileLogger", logContent);
         StringAssert.Equals(LogLevel.Information.ToString(), logContent);
         StringAssert.Equals("Test message", logContent);
