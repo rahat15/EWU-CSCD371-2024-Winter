@@ -3,7 +3,7 @@ using System.IO;
 
 
 namespace Logger
-{
+
     public class FileLogger : BaseLogger
     {
         public string FileName
@@ -51,4 +51,4 @@ namespace Logger
 
         }
     }
-}
+
