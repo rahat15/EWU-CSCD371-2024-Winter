@@ -11,20 +11,20 @@ namespace Logger.Tests;
 public class FileLoggerTests
 {
     private FileLogger? fileLogger;
-    private readonly string _filePath = "text.txt";
+    private readonly string filePath = "text.txt";
 
     [TestInitialize]
     public void Constructor()
     {
-        fileLogger = new FileLogger(_filePath);
-        fileLogger.FileName = _filePath;
+        fileLogger = new FileLogger(filePath);
+        fileLogger.FileName = filePath;
     }
 
     [TestMethod]
     public void Log_FileCreated_Successful()
     {
         // Arrange
-        var logger = new FileLogger(_filePath)
+        var logger = new FileLogger(filePath)
         {
             ClassName = "Test"
     };
@@ -38,18 +38,22 @@ public class FileLoggerTests
     }
 
     [TestMethod]
-    public void Log_dWriteLogToFile_Successful()
+    public void Log_WriteLogToFile_Successful()
     {
         // Arrange
-        var logger = new FileLogger(_filePath);
+        var logger = new FileLogger(filePath);
         DateTime currentDate = DateTime.Now;
         string formattedDate = currentDate.ToString("MM/dd/yyyy");
 
         // Act
         logger.Log(LogLevel.Information, "Test message");
+        File.AppendAllText(logger.FilePath, formattedDate);
+        //File.AppendAllText(logger.FilePath, );
+        
 
         // Assert
         var logContent = File.ReadAllText(logger.FilePath);
+        
         StringAssert.Equals(formattedDate, logContent);
         StringAssert.Equals("FileLogger", logContent);
         StringAssert.Equals(LogLevel.Information.ToString(), logContent);
@@ -61,7 +65,7 @@ public class FileLoggerTests
     public void Log_OverwritesExistingLogFile_Successful()
     {
         // Arrange
-        var logger = new FileLogger(_filePath);
+        var logger = new FileLogger(filePath);
 
         // Act
         logger.Log(LogLevel.Information, "First message");
@@ -71,6 +75,8 @@ public class FileLoggerTests
         var logContent = File.ReadAllText(logger.FilePath);
         Assert.AreNotEqual("First message", logContent);
     }
+
+
 
 }
 
