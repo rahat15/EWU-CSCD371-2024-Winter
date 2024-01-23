@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.IO;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -42,7 +43,7 @@ public class FileLoggerTests
         // Arrange
         var logger = new FileLogger(_filePath);
         DateTime currentDate = DateTime.Now;
-        string formattedDate = currentDate.ToString("MM/dd/yyyy");
+        string formattedDate = currentDate.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture);
 
         // Act
         logger.Log(LogLevel.Information, "Test message");
@@ -52,6 +53,7 @@ public class FileLoggerTests
 
         // Assert
         var logContent = File.ReadAllText(_filePath);
+
         StringAssert.Contains(logContent, formattedDate);
         StringAssert.Equals("FileLogger", logContent);
         StringAssert.Equals(LogLevel.Information.ToString(), logContent);
