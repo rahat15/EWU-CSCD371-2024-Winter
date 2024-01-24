@@ -19,8 +19,7 @@ public class PersonTests
     [Fact]
     public void FirstName_SetInigo_Success()
     {
-        Person person = new(null);
-        person.FirstName = "Inigo";
+        Person person = new("Inigo");
         Assert.Equal("Inigo", person.FirstName);
     }
 
