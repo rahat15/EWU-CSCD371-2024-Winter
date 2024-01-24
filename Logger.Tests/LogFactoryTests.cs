@@ -10,7 +10,7 @@ public class LogFactoryTests
     {
 
         var logFactory = new LogFactory();
-        string filePath = "C:\\path\\to\\your\\log.txt"; 
+        string filePath = "C:\\path\\to\\your\\test.txt"; 
         logFactory.ConfigureFileLogger(filePath);
 
         var fileLogger = logFactory.CreateLogger("FileLogger");
