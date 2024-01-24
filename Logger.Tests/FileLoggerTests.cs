@@ -21,8 +21,10 @@ public class FileLoggerTests
         string _directory = System.Reflection.Assembly.GetExecutingAssembly().Location;
         string fileName = "test.txt";
         string filePath = Path.Combine(_directory, fileName);
-     
-        FileLogger fileLogger = new(filePath);
+
+        LogFactory logFactory = new();
+        logFactory.ConfigureFileLogger(fileName);
+        FileLogger? logger = logFactory.CreateLogger(nameof(FileLogger));
     }
 
     [TestMethod]
