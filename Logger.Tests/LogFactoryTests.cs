@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.IO;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Logger.Tests;
 
@@ -10,7 +12,9 @@ public class LogFactoryTests
     {
 
         var logFactory = new LogFactory();
-        string filePath = "C:\\path\\to\\your\\test.txt"; 
+        string directoryPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+        string fileName = "test.txt";
+        string filePath=Path.Combine(directoryPath, fileName);
         logFactory.ConfigureFileLogger(filePath);
 
         var fileLogger = logFactory.CreateLogger("FileLogger");

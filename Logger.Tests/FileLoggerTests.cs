@@ -11,22 +11,18 @@ namespace Logger.Tests;
 [TestClass]
 public class FileLoggerTests
 {
-    private FileLogger? _fileLogger;
+    //private FileLogger? _fileLogger;
     private readonly string _filePath = "text.txt";
 
+    
     [TestInitialize]
     public void Constructor()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        fileLogger = new FileLogger(filePath);
-        fileLogger.FileName = filePath;
-=======
-        fileLogger = new FileLogger(_filePath);
->>>>>>> b62140cbcf3a45df6c418617ea6affa23f3abec4
-=======
-        _fileLogger = new FileLogger(_filePath);
->>>>>>> 7c47cc86540d67396dea65d617ccb19081ef18b0
+        string _directory = System.Reflection.Assembly.GetExecutingAssembly().Location;
+        string fileName = "test.txt";
+        string filePath = Path.Combine(_directory, fileName);
+     
+        FileLogger fileLogger = new(filePath);
     }
 
     [TestMethod]
