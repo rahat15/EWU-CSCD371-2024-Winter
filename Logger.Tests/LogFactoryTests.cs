@@ -12,9 +12,7 @@ public class LogFactoryTests
     {
 
         var logFactory = new LogFactory();
-        string directoryPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
-        string fileName = "test.txt";
-        string filePath=Path.Combine(directoryPath, fileName);
+        string filePath = "C:\\path\\to\\your\\test.txt";
         logFactory.ConfigureFileLogger(filePath);
 
         var fileLogger = logFactory.CreateLogger("FileLogger");
@@ -23,22 +21,12 @@ public class LogFactoryTests
         Assert.AreEqual("FileLogger", fileLogger?.ClassName);
     }
     [TestMethod]
-    public void ConfigureLogger_CheckFileName_Success() 
-    {  
+    public void ConfigureLogger_CheckFileName_Success()
+    {
         var logFactory = new LogFactory();
         string filePath = "C:\\path\\to\\your\\test.txt";
 
-
-        Assert.IsNotNull(fileLogger, "FileLogger should not be null");
-        Assert.AreEqual("FileLogger", fileLogger?.ClassName);
-    }
-    [TestMethod]
-    public void ConfigureLogger_CheckFileName_Success() 
-    {  
-        var logFactory = new LogFactory();
-        string filePath = "C:\\path\\to\\your\\test.txt";
-
-
+       
         logFactory.ConfigureFileLogger(filePath);
         Assert.AreEqual(filePath, logFactory.FilePath);
     }
