@@ -33,11 +33,8 @@ namespace Logger;
             }
 
             using StreamWriter writeTo = File.AppendText(this.FilePath);
-            writeTo.WriteLine("{0}", currentDateTime);
-            writeTo.WriteLine("{0}", nameof(FileLogger));
-            writeTo.WriteLine("{0}: ", logLevel);
-            writeTo.WriteLine("{0}", message);
-
+            writeTo.WriteLine($"{currentDateTime} {nameof(FileLogger)} {logLevel}: {message}");
+         
         }
     }
 
