@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -18,6 +18,16 @@ public class LogFactoryTests
         logFactory.ConfigureFileLogger(filePath);
 
         var fileLogger = logFactory.CreateLogger("FileLogger");
+
+        Assert.IsNotNull(fileLogger, "FileLogger should not be null");
+        Assert.AreEqual("FileLogger", fileLogger?.ClassName);
+    }
+    [TestMethod]
+    public void ConfigureLogger_CheckFileName_Success() 
+    {  
+        var logFactory = new LogFactory();
+        string filePath = "C:\\path\\to\\your\\test.txt";
+
 
         Assert.IsNotNull(fileLogger, "FileLogger should not be null");
         Assert.AreEqual("FileLogger", fileLogger?.ClassName);
