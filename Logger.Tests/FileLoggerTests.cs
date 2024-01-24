@@ -18,13 +18,14 @@ public class FileLoggerTests
     [TestInitialize]
     public void Constructor()
     {
-        string _directory = System.Reflection.Assembly.GetExecutingAssembly().Location;
+        //_fileLogger = new FileLogger(_filePath);
+        string _directory = Directory.GetCurrentDirectory();
         string fileName = "test.txt";
         string filePath = Path.Combine(_directory, fileName);
 
         LogFactory logFactory = new();
         logFactory.ConfigureFileLogger(fileName);
-        FileLogger? logger = logFactory.CreateLogger(nameof(FileLogger));
+        //FileLogger? logger = logFactory.CreateLogger(nameof(FileLogger));
     }
 
     [TestMethod]
