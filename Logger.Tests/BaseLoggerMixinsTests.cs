@@ -65,12 +65,12 @@ public class BaseLoggerMixinsTests
         var logger = new TestLogger();
 
         // Act
-        logger.Error("Message {0}", 42);
+        logger.Error("Error Message 42", 42);
 
         // Assert
         Assert.AreEqual(1, logger.LoggedMessages.Count);
         Assert.AreEqual(LogLevel.Error, logger.LoggedMessages[0].LogLevel);
-        Assert.AreEqual("Message 42", logger.LoggedMessages[0].Message);
+        Assert.AreEqual("Error Message 42", logger.LoggedMessages[0].Message);
     }
 
     [TestMethod]
@@ -80,12 +80,12 @@ public class BaseLoggerMixinsTests
         var logger = new TestLogger();
 
         // Act
-        logger.Warning("Message {0}", 42);
+        logger.Warning("Warning Message 42", 42);
 
         // Assert
         Assert.AreEqual(1, logger.LoggedMessages.Count);
         Assert.AreEqual(LogLevel.Warning, logger.LoggedMessages[0].LogLevel);
-        Assert.AreEqual("Message 42", logger.LoggedMessages[0].Message);
+        Assert.AreEqual("Warning Message 42", logger.LoggedMessages[0].Message);
     }
 
     [TestMethod]
@@ -95,12 +95,12 @@ public class BaseLoggerMixinsTests
         var logger = new TestLogger();
 
         // Act
-        logger.Debug("Message {0}", 42);
+        logger.Debug("Debug Message 42", 42);
 
         // Assert
         Assert.AreEqual(1, logger.LoggedMessages.Count);
         Assert.AreEqual(LogLevel.Debug, logger.LoggedMessages[0].LogLevel);
-        Assert.AreEqual("Message 42", logger.LoggedMessages[0].Message);
+        Assert.AreEqual("Debug Message 42", logger.LoggedMessages[0].Message);
     }
 
     [TestMethod]
@@ -110,12 +110,12 @@ public class BaseLoggerMixinsTests
         var logger = new TestLogger();
 
         // Act
-        logger.Information("Message {0}", 42);
+        logger.Information("Information Message 42", 42);
 
         // Assert
         Assert.AreEqual(1, logger.LoggedMessages.Count);
         Assert.AreEqual(LogLevel.Information, logger.LoggedMessages[0].LogLevel);
-        Assert.AreEqual("Message 42", logger.LoggedMessages[0].Message);
+        Assert.AreEqual("Information Message 42", logger.LoggedMessages[0].Message);
     }
 
 }
