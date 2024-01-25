@@ -3,13 +3,13 @@ using System.Globalization;
 using System.IO;
 
 
-namespace Logger
-{
+namespace Logger;
+
     public class FileLogger : BaseLogger
     {
    
 
-        private string FilePath
+        public string FilePath
         {
             get;
             set;
@@ -40,4 +40,4 @@ namespace Logger
 
         }
     }
-}
+

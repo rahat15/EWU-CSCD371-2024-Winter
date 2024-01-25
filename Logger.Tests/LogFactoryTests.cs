@@ -8,10 +8,14 @@ public class LogFactoryTests
     [TestMethod]
     public void CreateLogger_CheckClassName_Success()
     {
-        LogFactory logFactory = new LogFactory();
-        BaseLogger? fileLogger = logFactory.CreateLogger("FileLogger");
-        
-        if(fileLogger != null)
-            Assert.AreEqual("FileLogger", fileLogger.ClassName);
+
+        var logFactory = new LogFactory();
+        string filePath = "C:\\path\\to\\your\\test.txt"; 
+        logFactory.ConfigureFileLogger(filePath);
+
+        var fileLogger = logFactory.CreateLogger("FileLogger");
+
+        Assert.IsNotNull(fileLogger, "FileLogger should not be null");
+        Assert.AreEqual("FileLogger", fileLogger?.ClassName);
     }
 }
