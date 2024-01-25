@@ -96,6 +96,9 @@ public class ProgramTests
     [Theory]
     [InlineData("Inigo", "middle", "Montoya", "Inigo middle Montoya")]
     [InlineData("Inigo", null, "Montoya", "Inigo Montoya")]
+    //[InlineData("", null, "", "Montoya")]
+    //[InlineData("Inigo", null, "", "Inigo")]
+    //[InlineData(null, "middle", "Montoya", "middle Montoya")]
     public void GetFullName_ThreeNames_ReturnsFullName(string firstName, string? middleName, string lastName, string expected)
     {
         Assert.Equal(expected, Program.GetFullName(firstName, lastName, middleName));
@@ -107,4 +110,23 @@ public class ProgramTests
     {
         Assert.Equal(expected, Program.GetFullName(firstName, lastName));
     }
+
+    #region JoinStringByDelimiter
+    [Fact]
+    public void JoinStringByDelimiter_PassInNull_ThrowsArgumentNullException()
+    {
+        Assert.Throws<ArgumentNullException>(() => Program.JoinStringByDelimiter(null!));
+    }
+
+    [Theory]
+    [InlineData(new string?[] { "Inigo" }, "Inigo")]
+    [InlineData(new string?[] { "Montoya" }, "Montoya")]
+    [InlineData(new string?[] { "" }, "")]
+    [InlineData(new string?[] { null }, "")]
+    [InlineData(new string?[] {"Inigo, Montoya"}, "Inigo Montoya")]
+    public void JoinStringByDelimiter_OneElementNotNull_ReturnsElement(string?[] actual, string expected)
+    {
+        Assert.Equal(expected, Program.JoinStringByDelimiter(actual));
+    }
+    #endregion
 }

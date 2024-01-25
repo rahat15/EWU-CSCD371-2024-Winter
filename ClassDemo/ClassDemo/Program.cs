@@ -1,21 +1,23 @@
 ﻿namespace ClassDemo;
 
-
 public class Program
 {
+    /// <summary>
+    /// List of strings, join together by delimiter, ignore null or empty
+    /// </summary>
+    /// <param name="inputStrings">An array of strings that are...</param>
+    /// <returns></returns>
+    public static string JoinStringByDelimiter(string?[] inputStrings)
+    {
+        ArgumentNullException.ThrowIfNull(inputStrings);
+        return inputStrings[0] ?? string.Empty;
+    }
+
+
     public string GetFullName(string firstName, string lastName, string? middleName = null)
     {
-        //string fullName = firstName + " ";
-        //if (middleName != null)
-        //{
-        //fullName += middleName + " ";
-        //}
-        //return fullName + lastName;
-
-        //return $"{firstName}{middleName ?? ""}{lastName}";
-        return firstName + $"{(middleName != null ? ' ' + middleName : ' ')}" + lastName;
-
-        //return firstName + " " + middleName + " " + lastName;
+        return JoinStringByDelimiter([firstName, lastName, middleName]);
+        //return firstName + $"{(middleName != null ? ' ' + middleName + ' ' : ' ')}" + lastName;
     }
 
     public static void Main(string[] args)

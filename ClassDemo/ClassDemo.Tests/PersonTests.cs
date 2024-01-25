@@ -12,8 +12,6 @@ public class PersonTests
     public void Constructor_ValidName_SuccessfulInitialization()
     {
         Person person = new("Inigo");
-
-
     }
 
     [Fact]
