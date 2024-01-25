@@ -12,9 +12,9 @@ public static class BaseLoggerMixins
         }
         else
         {
-            //logger.Log(LogLevel.Error, string.Format(CultureInfo.CurrentCulture, message, args));
+            logger.Log(LogLevel.Error, string.Format(CultureInfo.CurrentCulture, message, args));
             string formatting = string.Format(message, args);
-            logger.Log(LogLevel.Error, formatting);
+            //logger.Log(LogLevel.Error, formatting);
         }
     }
     public static void Warning(this BaseLogger? logger, string message, params object[] args)
@@ -25,9 +25,9 @@ public static class BaseLoggerMixins
         }
         else
         {
-            //logger.Log(LogLevel.Warning, string.Format(CultureInfo.CurrentCulture, message, args));
+            logger.Log(LogLevel.Warning, string.Format(CultureInfo.CurrentCulture, message, args));
             string formatting = string.Format(message, args);
-            logger.Log(LogLevel.Warning, formatting);
+           // logger.Log(LogLevel.Warning, formatting);
         }
     }
 
@@ -39,9 +39,9 @@ public static class BaseLoggerMixins
         }
         else
         {
-            //logger.Log(LogLevel.Debug, string.Format(CultureInfo.CurrentCulture, message, args));
+            logger.Log(LogLevel.Debug, string.Format(CultureInfo.CurrentCulture, message, args));
             string formatting = string.Format(message, args);
-            logger.Log(LogLevel.Debug, formatting);
+            //logger.Log(LogLevel.Debug, formatting);
         }
     }
 
@@ -53,9 +53,9 @@ public static class BaseLoggerMixins
         }
         else
         {
-            //logger.Log(LogLevel.Information, string.Format(CultureInfo.CurrentCulture, message, args));
+            logger.Log(LogLevel.Information, string.Format(CultureInfo.CurrentCulture, message, args));
             string formatting = string.Format(message, args);
-            logger.Log(LogLevel.Information, formatting);
+            //logger.Log(LogLevel.Information, formatting);
         }
     }
 
