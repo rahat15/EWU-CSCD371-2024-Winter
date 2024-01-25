@@ -15,7 +15,7 @@ public class FileLoggerTests
     //private FileLogger? _fileLogger;
     private readonly string _filePath = "text.txt";
 
-    
+
     [TestInitialize]
     public void Constructor()
     {
@@ -57,8 +57,8 @@ public class FileLoggerTests
         //// Act
         //logger.Log(LogLevel.Information, "Test message");
         //File.AppendAllText(logger.FilePath, formattedDate);
-        
-        
+
+
 
         //// Assert
 
@@ -100,7 +100,7 @@ public class FileLoggerTests
         // Assert
         Assert.AreEqual(log, contents);
     }
-}
+
 
 
     [TestMethod]
@@ -118,7 +118,8 @@ public class FileLoggerTests
         Assert.AreNotEqual("First message", logContent);
     }
 
-
-
 }
+
+
+
 
