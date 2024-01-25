@@ -62,7 +62,11 @@ public class FileLoggerTests
         // Act
         fileLogger.Log(LogLevel.Warning, "Warnings");
 
-        string log = $"{System.DateTime.Now} {"FileLogger"} {LogLevel.Warning}: {"Warnings"}";
+        DateTime currentTime = DateTime.Now;
+        string formattedDate = currentTime.ToString("MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+
+
+        string log = $"{formattedDate} {"FileLogger"} {LogLevel.Warning}: {"Warnings"}";
 
         //string read="";
         string contents = File.ReadLines(path).Last();
