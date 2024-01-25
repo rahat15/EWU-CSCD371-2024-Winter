@@ -80,16 +80,28 @@ public class FileLoggerTests
     [TestMethod]
     public void Log_OverwritesExistingLogFile_Successful()
     {
+        String fileName = "test.txt";
+
         // Arrange
-        var logger = new FileLogger(_filePath);
+        string virtualPath = string.Join(@"\", (Environment.CurrentDirectory));
+        string path = Path.Combine(virtualPath, fileName);
+        FileLogger fileLogger = new(path);
 
         // Act
-        logger.Log(LogLevel.Information, "First message");
-        logger.Log(LogLevel.Warning, "Second message");
+        fileLogger.Log(LogLevel.Information, "First message");
+        fileLogger.Log(LogLevel.Warning, "Second message");
 
         // Assert
-        var logContent = File.ReadAllText(_filePath);
+        string logContent = File.ReadLines(path).Last();
         Assert.AreNotEqual("First message", logContent);
+        
+        DateTime currentTime = DateTime.Now;
+        string formattedDate = currentTime.ToString("MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+
+
+        string log = $"{formattedDate} {"FileLogger"} {LogLevel.Warning}: {"Second message"}";
+
+        Assert.AreEqual(log, logContent);
     }
 
 }
