@@ -1,6 +1,7 @@
 using System;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -48,30 +49,58 @@ public class FileLoggerTests
     [TestMethod]
     public void Log_WriteLogToFile_Successful()
     {
+        //// Arrange
+        //var logger = new FileLogger(_filePath);
+        //DateTime currentDate = DateTime.Now;
+        //string formattedDate = currentDate.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture);
+
+        //// Act
+        //logger.Log(LogLevel.Information, "Test message");
+        //File.AppendAllText(logger.FilePath, formattedDate);
+        
+        
+
+        //// Assert
+
+        //var logContent = File.ReadAllText(logger.FilePath);
+
+        //StringAssert.Contains(logContent, formattedDate);
+        //StringAssert.Equals("FileLogger", logContent);
+        //StringAssert.Equals(LogLevel.Information.ToString(), logContent);
+        //StringAssert.Equals("Test message", logContent);
+
+
+        string fileName = "test.txt";
         // Arrange
-        var logger = new FileLogger(_filePath);
-        DateTime currentDate = DateTime.Now;
-        string formattedDate = currentDate.ToString("MM/dd/yyyy", CultureInfo.InvariantCulture);
+        //string virtualPath = Path.Combine("C:\\Users\\Cynthia\\Desktop", fileName);
+        //string virtualPath=System.Reflection.Assembly.GetExecutingAssembly().Location;
+        //virtualPath = Path.Combine(virtualPath, fileName);
+
+        string virtualPath = string.Join(@"\", (Environment.CurrentDirectory));
+        string path = Path.Combine(virtualPath, fileName);
+        FileLogger fileLogger = new(path);
+
 
         // Act
-        logger.Log(LogLevel.Information, "Test message");
-        File.AppendAllText(logger.FilePath, formattedDate);
-        
-        
+        fileLogger.Log(LogLevel.Warning, "Warnings");
+
+        string log = $"{System.DateTime.Now} {"FileLogger"} {LogLevel.Warning}: {"Warnings"}";
+
+        //string read="";
+        string contents = File.ReadLines(path).Last();
+
+        //if (File.Exists(virtualPath))
+        //{
+        //    // Create a file to write to.
+        //    StreamReader sr = File.OpenText(virtualPath);;
+        //    read = sr.ReadToEnd();
+        //    read.Trim();
+        //}
 
         // Assert
-<<<<<<< HEAD
-<<<<<<< HEAD
-        var logContent = File.ReadAllText(logger.FilePath);
-        
-=======
-        var logContent = File.ReadAllText(_filePath);
-
-        StringAssert.Contains(logContent, formattedDate);
-        StringAssert.Equals("FileLogger", logContent);
-        StringAssert.Equals(LogLevel.Information.ToString(), logContent);
-        StringAssert.Equals("Test message", logContent);
+        Assert.AreEqual(log, contents);
     }
+}
 
 
     [TestMethod]
