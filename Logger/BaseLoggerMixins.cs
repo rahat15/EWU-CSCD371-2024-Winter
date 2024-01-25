@@ -16,19 +16,19 @@ public static class BaseLoggerMixins
             string formatting = string.Format(message, args);
             //logger.Log(LogLevel.Error, formatting);
         }
+
     }
     public static void Warning(this BaseLogger? logger, string message, params object[] args)
     {
-        if (logger == null)
+        if (logger != null)
         {
-            throw new System.ArgumentNullException(nameof(logger));
+            logger.Log(LogLevel.Information, message);
         }
         else
         {
-            logger.Log(LogLevel.Warning, string.Format(CultureInfo.CurrentCulture, message, args));
-            string formatting = string.Format(message, args);
-           // logger.Log(LogLevel.Warning, formatting);
+            throw new System.ArgumentNullException(null, "Information mixin got null");
         }
+        
     }
 
     public static void Debug(this BaseLogger? logger, string message, params object[] args)
