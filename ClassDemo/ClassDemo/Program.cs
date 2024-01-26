@@ -1,4 +1,6 @@
-﻿namespace ClassDemo;
+﻿using System.Text;
+
+namespace ClassDemo;
 
 public class Program
 {
@@ -10,7 +12,28 @@ public class Program
     public static string JoinStringByDelimiter(string?[] inputStrings)
     {
         ArgumentNullException.ThrowIfNull(inputStrings);
-        return inputStrings[0] ?? string.Empty;
+
+        StringBuilder result = new();
+        
+        if(inputStrings.Length > 0)
+        {
+            result.Append(inputStrings[0]);
+
+            /* runs for each element. doesnt go out of bounds
+            * 1.. means ignore the first element
+            * where finds all the elements that satisfy condition... just like where clause in SQL*/
+
+            foreach (string?  inputString in inputStrings[1..].Where(item => !string.IsNullOrEmpty(item))) 
+            {
+                if (inputString != null) 
+                {
+                    result.Append(" ");
+                    result.Append(inputString);
+                }
+            }
+        
+        }
+        return result.ToString(); //returns empty string for null
     }
 
 

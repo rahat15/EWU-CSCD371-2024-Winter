@@ -123,10 +123,11 @@ public class ProgramTests
     [InlineData(new string?[] { "Montoya" }, "Montoya")]
     [InlineData(new string?[] { "" }, "")]
     [InlineData(new string?[] { null }, "")]
-    [InlineData(new string?[] {"Inigo, Montoya"}, "Inigo Montoya")]
+    [InlineData(new string?[] {"Inigo", "Montoya"}, "Inigo Montoya")]
     public void JoinStringByDelimiter_OneElementNotNull_ReturnsElement(string?[] actual, string expected)
     {
         Assert.Equal(expected, Program.JoinStringByDelimiter(actual));
     }
     #endregion
+
 }
