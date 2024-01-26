@@ -66,7 +66,7 @@ public class FileLoggerTests
         string formattedDate = currentTime.ToString("MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
 
 
-        string log = $"{formattedDate} {"FileLogger"} {LogLevel.Warning}: {"Warnings"}";
+        string log = $"{formattedDate} {nameof(FileLogger)} {LogLevel.Warning}: {"Warnings"}";
 
         //string read="";
         string contents = File.ReadLines(path).Last();
@@ -99,7 +99,7 @@ public class FileLoggerTests
         string formattedDate = currentTime.ToString("MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
 
 
-        string log = $"{formattedDate} {"FileLogger"} {LogLevel.Warning}: {"Second message"}";
+        string log = $"{formattedDate} {nameof(FileLogger)} {LogLevel.Warning}: {"Second message"}";
 
         Assert.AreEqual(log, logContent);
     }
